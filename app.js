@@ -1,42 +1,43 @@
-const userScore = 0;
-const computerScore = 0;
+let userScore = 0;
+let computerScore = 0;
 
-let playerSelection = 'PAPer'
+let playerSelection = 'Rock'
 playerSelection = playerSelection.toLowerCase();
 
-function getComputerChoice() {
+let computerSelection = computerPlay();
+
+function computerPlay() {
     const choices = ['rock', 'paper', 'scissors'];
     const randomNumber = Math.floor(Math.random() * 3);
     return choices[randomNumber];
 }
 
-function computerPlay(playerSelection) {
-    const computerSelection = getComputerChoice();
+function playRound(playerSelection, computerSelection) {
     switch (playerSelection + computerSelection) {
         case "rockscissors":
-            console.log("You win! Rock beats scissors.")
+            return "You win! Rock beats scissors."
             break;
         case "paperrock":
-            console.log('You win! Paper beats rock.');
+            return 'You win! Paper beats rock.';
             break;
         case "scissorspaper":
-            console.log("You win! Scissors beats paper.");
+            return "You win! Scissors beats paper.";
             break;
         case "rockpaper":
-            console.log("You lose. Paper beats rock.");
+            return "You lose. Paper beats rock.";
             break;
         case "paperscissors":
-            console.log('You lose. Scissors beats paper.');
+            return 'You lose. Scissors beats paper.';
             break;
         case "scissorsrock":
-            console.log("You lose. Rock beats scissors.");
+            return "You lose. Rock beats scissors.";
             break;
         case "rockrock":
         case "paperpaper":
         case "scissorsscissors":
-        console.log("It's a draw.")
+        return "It's a draw."
         break;
     }
 }
 
-computerPlay(playerSelection);
+console.log(playRound(playerSelection, computerSelection));
